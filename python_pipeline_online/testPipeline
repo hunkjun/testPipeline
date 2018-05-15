@@ -3,96 +3,96 @@ pipeline {
   agent  any
   
   stages {
-  stage('À­È¡´úÂë') {
+  stage('æ‹‰å–ä»£ç ') {
   	when { environment name: 'UpdateType', value: 'online' }
     steps {
     ansiColor('xterm'){
       sh "which java"
-      echo 'À­È¡´úÂë'
+      echo 'æ‹‰å–ä»£ç '
     }
     }    
   }
-  stage('maven´ò°ü') {
+  stage('mavenæ‰“åŒ…') {
   	when { environment name: 'UpdateType', value: 'online' }
     steps {
     ansiColor('xterm'){
       sh "which java"
-      echo 'maven´ò°ü'
+      echo 'mavenæ‰“åŒ…'
     }
     }    
   }
-  stage('´úÂë°üÖØÃüÃû') {
+  stage('ä»£ç åŒ…é‡å‘½å') {
   	when { environment name: 'UpdateType', value: 'online' }
     steps {
     ansiColor('xterm'){
       sh "which java"
-      echo 'À­È¡´úÂë'
+      echo 'æ‹‰å–ä»£ç '
     }
     }    
   }
-  stage('¹Ø±Õ¼à¿Ø') {
+  stage('å…³é—­ç›‘æ§') {
   	when { environment name: 'UpdateType', value: 'online' }
     steps {
     ansiColor('xterm'){
       sh "which java"
-      echo 'À­È¡´úÂë'
+      echo 'æ‹‰å–ä»£ç '
     }
     }    
   }
- stage('ÍÆËÍ´úÂë') {
+ stage('æ¨é€ä»£ç ') {
     when { environment name: 'UpdateType', value: 'online' }
     steps {
     ansiColor('xterm'){
-      echo 'ÍÆËÍ´úÂë'
+      echo 'æ¨é€ä»£ç '
     }
     }
   }
-  stage('Í£Ö¹·şÎñ') {
+  stage('åœæ­¢æœåŠ¡') {
     when { environment name: 'UpdateType', value: 'stop' }
     steps {
     ansiColor('xterm'){
-      echo 'Í£Ö¹·şÎñ'
+      echo 'åœæ­¢æœåŠ¡'
     }
     }
   }
-  stage('ÖØÆô·şÎñ') {
+  stage('é‡å¯æœåŠ¡') {
     when { environment name: 'UpdateType', value: 'online' }
     steps {
     ansiColor('xterm'){
-      echo 'ÖØÆô·şÎñ'
+      echo 'é‡å¯æœåŠ¡'
     }
     }
   }
-  stage('ĞÄÌø¼ì²â') {
+  stage('å¿ƒè·³æ£€æµ‹') {
   	when { environment name: 'UpdateType', value: 'online' }
     steps {
     ansiColor('xterm'){
       sh "which java"
-      echo 'À­È¡´úÂë'
+      echo 'æ‹‰å–ä»£ç '
     }
     }    
   }
-  stage('¿ªÆô¼à¿Ø') {
+  stage('å¼€å¯ç›‘æ§') {
   	when { environment name: 'UpdateType', value: 'online' }
     steps {
     ansiColor('xterm'){
       sh "which java"
-      echo 'À­È¡´úÂë'
+      echo 'æ‹‰å–ä»£ç '
     }
     }    
   }
-  stage('»Ø¹ö´úÂë') {
+  stage('å›æ»šä»£ç ') {
     when { environment name: 'UpdateType', value: 'rollback' }
     steps {
     ansiColor('xterm'){
-      echo '»Ø¹ö´úÂë'
+      echo 'å›æ»šä»£ç '
     }
     }
   }
 	}
   post {
       failure {
-         echo '´Ë´Î¹¹½¨Ê§°Ü£¬Çë²é¿´ÈÕÖ¾£¬ÅÅ²éÔ­Òò'
+         echo 'æ­¤æ¬¡æ„å»ºå¤±è´¥ï¼Œè¯·æŸ¥çœ‹æ—¥å¿—ï¼Œæ’æŸ¥åŸå› '
      }
   }
 }
