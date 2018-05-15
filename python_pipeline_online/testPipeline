@@ -1,25 +1,30 @@
 pipeline {
 
   agent  any
+  // 设置环境变量
   environment { 
     java = '/usr/local/java/jdk1.8.0_102/bin/java'
     mvn = '/usr/local/maven/apache-maven-3.3.9/bin/mvn'
   }
+  
+  // 自定义工具
   tools {
     maven 'Maven-3.5.3' 
-    maven 'java-1.8.0' 
+    jdk 'java-1.8.0' 
   }
   
+  // 部署服务操作
   stages {
   stage('拉取代码') {
   	when { environment name: 'UpdateType', value: 'online' }
     steps {
     ansiColor('xterm'){
       echo '拉取gitlab代码'
-      git url: '${GitlabUrl}'
+      git branch: '${GitlabBranch}',url: '${GitlabUrl}'
     }
     }    
   }
+  
   stage('maven打包') {
   	when { environment name: 'UpdateType', value: 'online' }
     steps {
