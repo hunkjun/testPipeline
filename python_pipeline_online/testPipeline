@@ -55,14 +55,6 @@ pipeline {
     }
     }
   }
-  stage('启动服务') {
-    when { environment name: 'UpdateType', value: 'stop' }
-    steps {
-    ansiColor('xterm'){
-      echo '启动服务'
-    }
-    }
-  }
   stage('重启服务') {
     when { environment name: 'UpdateType', value: 'online' }
     steps {
@@ -76,7 +68,7 @@ pipeline {
     steps {
     ansiColor('xterm'){
       sh "which java"
-      echo '心跳检测'
+      echo '拉取代码'
     }
     }    
   }
@@ -85,7 +77,7 @@ pipeline {
     steps {
     ansiColor('xterm'){
       sh "which java"
-      echo '开启监控'
+      echo '拉取代码'
     }
     }    
   }
