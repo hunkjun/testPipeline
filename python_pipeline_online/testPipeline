@@ -1,4 +1,98 @@
-node {
-   echo 'Hello World'
+pipeline {
+	agent {
+  label any
+    }
+  stages {
+  stage('拉取代码') {
+  	when { environment name: 'UpdateType', value: 'online' }
+    steps {
+    ansiColor('xterm'){
+      sh "which java"
+      echo '拉取代码'
+    }
+    }    
+  }
+  stage('maven打包') {
+  	when { environment name: 'UpdateType', value: 'online' }
+    steps {
+    ansiColor('xterm'){
+      sh "which java"
+      echo 'maven打包'
+    }
+    }    
+  }
+  stage('代码包重命名') {
+  	when { environment name: 'UpdateType', value: 'online' }
+    steps {
+    ansiColor('xterm'){
+      sh "which java"
+      echo '拉取代码'
+    }
+    }    
+  }
+  stage('关闭监控') {
+  	when { environment name: 'UpdateType', value: 'online' }
+    steps {
+    ansiColor('xterm'){
+      sh "which java"
+      echo '拉取代码'
+    }
+    }    
+  }
+ stage('推送代码') {
+    when { environment name: 'UpdateType', value: 'online' }
+    steps {
+    ansiColor('xterm'){
+      echo '推送代码'
+    }
+    }
+  }
+  stage('停止服务') {
+    when { environment name: 'UpdateType', value: 'stop' }
+    steps {
+    ansiColor('xterm'){
+      echo '停止服务'
+    }
+    }
+  }
+  stage('重启服务') {
+    when { environment name: 'UpdateType', value: 'online' }
+    steps {
+    ansiColor('xterm'){
+      echo '重启服务'
+    }
+    }
+  }
+  stage('心跳检测') {
+  	when { environment name: 'UpdateType', value: 'online' }
+    steps {
+    ansiColor('xterm'){
+      sh "which java"
+      echo '拉取代码'
+    }
+    }    
+  }
+  stage('开启监控') {
+  	when { environment name: 'UpdateType', value: 'online' }
+    steps {
+    ansiColor('xterm'){
+      sh "which java"
+      echo '拉取代码'
+    }
+    }    
+  }
+  stage('回滚代码') {
+    when { environment name: 'UpdateType', value: 'rollback' }
+    steps {
+    ansiColor('xterm'){
+      echo '回滚代码'
+    }
+    }
+  }
+	}
+  post {
+      failure {
+         echo '此次构建失败，请查看日志，排查原因'
+     }
+  }
 }
-11
