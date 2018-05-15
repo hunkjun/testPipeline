@@ -16,8 +16,10 @@ pipeline {
   	when { environment name: 'UpdateType', value: 'online' }
     steps {
     ansiColor('xterm'){
-      sh "which java"
       echo 'maven打包'
+      mvn clean
+      mvn install -Dmaven.test.skip=true -f pom.xml
+      mvn package -Dmaven.test.skip=true -f pom.xml
     }
     }    
   }
