@@ -1,6 +1,10 @@
 pipeline {
 
   agent  any
+  environment { 
+    java = '/usr/local/java/jdk1.8.0_102/bin/java'
+    mvn = '/usr/local/maven/apache-maven-3.3.9/bin/mvn'
+  }
   
   stages {
   stage('拉取代码') {
@@ -17,9 +21,9 @@ pipeline {
     steps {
     ansiColor('xterm'){
       echo 'maven打包'
-      sh '/usr/local/maven/bin/mvn clean'
-      sh '/usr/local/maven/bin/mvn install -Dmaven.test.skip=true -f pom.xml'
-      sh '/usr/local/maven/bin/mvn package -Dmaven.test.skip=true -f pom.xml'
+      sh 'mvn clean'
+      sh 'mvn install -Dmaven.test.skip=true -f pom.xml'
+      sh 'mvn package -Dmaven.test.skip=true -f pom.xml'
     }
     }    
   }
