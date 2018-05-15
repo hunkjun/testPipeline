@@ -1,0 +1,4 @@
+Jenkinsfile (Declarative Pipeline)
+node {
+   echo 'Hello World'
+}
