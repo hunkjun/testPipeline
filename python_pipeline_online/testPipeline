@@ -5,6 +5,10 @@ pipeline {
     java = '/usr/local/java/jdk1.8.0_102/bin/java'
     mvn = '/usr/local/maven/apache-maven-3.3.9/bin/mvn'
   }
+  tools {
+    maven 'Maven-3.5.3' 
+    maven 'java-1.8.0' 
+  }
   
   stages {
   stage('拉取代码') {
