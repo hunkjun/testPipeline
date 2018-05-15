@@ -9,7 +9,6 @@ pipeline {
     ansiColor('xterm'){
       echo '拉取gitlab代码'
       git url: '${GitlabUrl}'
-      // git url: 'git@github.com:hunkjun/maven-project.git'
     }
     }    
   }
