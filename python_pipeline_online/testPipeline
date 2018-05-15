@@ -7,8 +7,8 @@ pipeline {
   	when { environment name: 'UpdateType', value: 'online' }
     steps {
     ansiColor('xterm'){
-      sh "which java"
-      echo '拉取代码'
+      echo '拉取gitlab代码'
+      git ${GitlabUrl}
     }
     }    
   }
