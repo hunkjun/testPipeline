@@ -1,4 +1,3 @@
-Jenkinsfile
 node {
    echo 'Hello World'
 }
