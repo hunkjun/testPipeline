@@ -8,7 +8,7 @@ pipeline {
     steps {
     ansiColor('xterm'){
       echo '拉取gitlab代码'
-      git credentialsId: '6163bf74-b6ec-42eb-afa6-d672d7506e48', url: '"${GitlabUrl}"'
+      git url: '"${GitlabUrl}"' branch: 'master'
     }
     }    
   }
